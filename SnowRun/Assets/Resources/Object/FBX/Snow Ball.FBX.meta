@@ -1,0 +1,697 @@
+fileFormatVersion: 2
+guid: ffbcb4b78faff78449b9f7196bd27cdb
+timeCreated: 1442920325
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box031
+    100002: Box032
+    100004: Box034
+    100006: Box036
+    100008: Box038
+    100010: Box040
+    100012: Box041
+    100014: Box046
+    100016: Box048
+    100018: Box056
+    100020: Box057
+    100022: Box059
+    100024: Box061
+    100026: Box063
+    100028: Box065
+    100030: Box066
+    100032: Box071
+    100034: Box073
+    100036: Box081
+    100038: Box082
+    100040: Box084
+    100042: Box086
+    100044: Box088
+    100046: Box090
+    100048: Box091
+    100050: Box096
+    100052: Box098
+    100054: Snow ball 1
+    100056: //RootNode
+    100058: Snow ball 2
+    100060: Snow ball 3
+    100062: Snow ball 4
+    100064: Snow ball001
+    100066: Snow ball002
+    100068: Snow ball003
+    100070: Snow ball004
+    100072: Snow ball005
+    100074: Snow ball006
+    100076: Snow ball007
+    100078: Snow ball008
+    100080: Snow ball009
+    100082: Snow ball010
+    100084: Snow ball011
+    100086: Snow ball012
+    100088: Snow ball013
+    100090: Snow ball014
+    100092: Snow ball015
+    100094: Snow ball016
+    100096: Snow ball017
+    100098: Snow ball018
+    100100: Snow ball019
+    100102: Snow ball020
+    100104: Snow ball021
+    100106: Snow ball022
+    100108: Snow ball023
+    100110: Snow ball024
+    100112: Snow ball025
+    100114: Snow ball026
+    100116: Snow ball027
+    100118: Snow ball028
+    100120: Snow ball029
+    100122: Snow ball030
+    100124: Snow ball031
+    100126: Snow ball032
+    100128: Snow ball033
+    100130: Snow ball034
+    100132: Snow ball035
+    100134: Snow ball036
+    100136: Snow ball037
+    100138: Snow ball038
+    100140: Snow ball039
+    100142: Snow ball040
+    100144: Snow ball041
+    100146: Snow ball042
+    100148: Snow ball043
+    100150: Snow ball044
+    100152: Snow ball045
+    100154: Snow ball046
+    100156: Snow ball047
+    100158: Snow ball048
+    100160: Snow ball049
+    100162: Snow ball050
+    100164: Snow ball051
+    100166: Snow ball052
+    100168: Snow ball053
+    100170: Snow ball054
+    100172: Snow ball055
+    100174: Snow ball056
+    100176: Snow ball057
+    100178: Snow ball058
+    100180: Snow ball059
+    100182: Snow ball060
+    100184: Snow ball061
+    100186: Snow ball062
+    100188: Snow ball063
+    100190: Snow ball064
+    100192: Snow ball065
+    100194: Snow ball066
+    100196: Snow ball067
+    100198: Snow ball068
+    100200: Snow ball069
+    100202: Snow ball070
+    100204: Snow ball071
+    100206: Snow ball072
+    100208: Snow ball073
+    100210: Snow ball074
+    100212: Snow ball075
+    100214: Snow ball076
+    100216: Snow ball077
+    100218: Snow ball078
+    100220: Snow ball079
+    100222: Snow ball080
+    100224: Snow ball081
+    100226: Snow ball082
+    100228: Snow ball083
+    100230: Snow ball084
+    100232: Snow ball085
+    100234: Snow ball086
+    100236: Snow ball087
+    100238: Snow ball088
+    100240: Snow ball089
+    100242: Snow ball090
+    100244: Snow ball091
+    100246: Snow ball092
+    100248: Snow ball093
+    100250: Snow ball094
+    400000: Box031
+    400002: Box032
+    400004: Box034
+    400006: Box036
+    400008: Box038
+    400010: Box040
+    400012: Box041
+    400014: Box046
+    400016: Box048
+    400018: Box056
+    400020: Box057
+    400022: Box059
+    400024: Box061
+    400026: Box063
+    400028: Box065
+    400030: Box066
+    400032: Box071
+    400034: Box073
+    400036: Box081
+    400038: Box082
+    400040: Box084
+    400042: Box086
+    400044: Box088
+    400046: Box090
+    400048: Box091
+    400050: Box096
+    400052: Box098
+    400054: Snow ball 1
+    400056: //RootNode
+    400058: Snow ball 2
+    400060: Snow ball 3
+    400062: Snow ball 4
+    400064: Snow ball001
+    400066: Snow ball002
+    400068: Snow ball003
+    400070: Snow ball004
+    400072: Snow ball005
+    400074: Snow ball006
+    400076: Snow ball007
+    400078: Snow ball008
+    400080: Snow ball009
+    400082: Snow ball010
+    400084: Snow ball011
+    400086: Snow ball012
+    400088: Snow ball013
+    400090: Snow ball014
+    400092: Snow ball015
+    400094: Snow ball016
+    400096: Snow ball017
+    400098: Snow ball018
+    400100: Snow ball019
+    400102: Snow ball020
+    400104: Snow ball021
+    400106: Snow ball022
+    400108: Snow ball023
+    400110: Snow ball024
+    400112: Snow ball025
+    400114: Snow ball026
+    400116: Snow ball027
+    400118: Snow ball028
+    400120: Snow ball029
+    400122: Snow ball030
+    400124: Snow ball031
+    400126: Snow ball032
+    400128: Snow ball033
+    400130: Snow ball034
+    400132: Snow ball035
+    400134: Snow ball036
+    400136: Snow ball037
+    400138: Snow ball038
+    400140: Snow ball039
+    400142: Snow ball040
+    400144: Snow ball041
+    400146: Snow ball042
+    400148: Snow ball043
+    400150: Snow ball044
+    400152: Snow ball045
+    400154: Snow ball046
+    400156: Snow ball047
+    400158: Snow ball048
+    400160: Snow ball049
+    400162: Snow ball050
+    400164: Snow ball051
+    400166: Snow ball052
+    400168: Snow ball053
+    400170: Snow ball054
+    400172: Snow ball055
+    400174: Snow ball056
+    400176: Snow ball057
+    400178: Snow ball058
+    400180: Snow ball059
+    400182: Snow ball060
+    400184: Snow ball061
+    400186: Snow ball062
+    400188: Snow ball063
+    400190: Snow ball064
+    400192: Snow ball065
+    400194: Snow ball066
+    400196: Snow ball067
+    400198: Snow ball068
+    400200: Snow ball069
+    400202: Snow ball070
+    400204: Snow ball071
+    400206: Snow ball072
+    400208: Snow ball073
+    400210: Snow ball074
+    400212: Snow ball075
+    400214: Snow ball076
+    400216: Snow ball077
+    400218: Snow ball078
+    400220: Snow ball079
+    400222: Snow ball080
+    400224: Snow ball081
+    400226: Snow ball082
+    400228: Snow ball083
+    400230: Snow ball084
+    400232: Snow ball085
+    400234: Snow ball086
+    400236: Snow ball087
+    400238: Snow ball088
+    400240: Snow ball089
+    400242: Snow ball090
+    400244: Snow ball091
+    400246: Snow ball092
+    400248: Snow ball093
+    400250: Snow ball094
+    2300000: Box031
+    2300002: Box032
+    2300004: Box034
+    2300006: Box036
+    2300008: Box038
+    2300010: Box040
+    2300012: Box041
+    2300014: Box046
+    2300016: Box048
+    2300018: Box056
+    2300020: Box057
+    2300022: Box059
+    2300024: Box061
+    2300026: Box063
+    2300028: Box065
+    2300030: Box066
+    2300032: Box071
+    2300034: Box073
+    2300036: Box081
+    2300038: Box082
+    2300040: Box084
+    2300042: Box086
+    2300044: Box088
+    2300046: Box090
+    2300048: Box091
+    2300050: Box096
+    2300052: Box098
+    2300054: Snow ball 1
+    2300056: Snow ball 2
+    2300058: Snow ball 3
+    2300060: Snow ball 4
+    2300062: Snow ball001
+    2300064: Snow ball002
+    2300066: Snow ball003
+    2300068: Snow ball004
+    2300070: Snow ball005
+    2300072: Snow ball006
+    2300074: Snow ball007
+    2300076: Snow ball008
+    2300078: Snow ball009
+    2300080: Snow ball010
+    2300082: Snow ball011
+    2300084: Snow ball012
+    2300086: Snow ball013
+    2300088: Snow ball014
+    2300090: Snow ball015
+    2300092: Snow ball016
+    2300094: Snow ball017
+    2300096: Snow ball018
+    2300098: Snow ball019
+    2300100: Snow ball020
+    2300102: Snow ball021
+    2300104: Snow ball022
+    2300106: Snow ball023
+    2300108: Snow ball024
+    2300110: Snow ball025
+    2300112: Snow ball026
+    2300114: Snow ball027
+    2300116: Snow ball028
+    2300118: Snow ball029
+    2300120: Snow ball030
+    2300122: Snow ball031
+    2300124: Snow ball032
+    2300126: Snow ball033
+    2300128: Snow ball034
+    2300130: Snow ball035
+    2300132: Snow ball036
+    2300134: Snow ball037
+    2300136: Snow ball038
+    2300138: Snow ball039
+    2300140: Snow ball040
+    2300142: Snow ball041
+    2300144: Snow ball042
+    2300146: Snow ball043
+    2300148: Snow ball044
+    2300150: Snow ball045
+    2300152: Snow ball046
+    2300154: Snow ball047
+    2300156: Snow ball048
+    2300158: Snow ball049
+    2300160: Snow ball050
+    2300162: Snow ball051
+    2300164: Snow ball052
+    2300166: Snow ball053
+    2300168: Snow ball054
+    2300170: Snow ball055
+    2300172: Snow ball056
+    2300174: Snow ball057
+    2300176: Snow ball058
+    2300178: Snow ball059
+    2300180: Snow ball060
+    2300182: Snow ball061
+    2300184: Snow ball062
+    2300186: Snow ball063
+    2300188: Snow ball064
+    2300190: Snow ball065
+    2300192: Snow ball066
+    2300194: Snow ball067
+    2300196: Snow ball068
+    2300198: Snow ball069
+    2300200: Snow ball070
+    2300202: Snow ball071
+    2300204: Snow ball072
+    2300206: Snow ball073
+    2300208: Snow ball074
+    2300210: Snow ball075
+    2300212: Snow ball076
+    2300214: Snow ball077
+    2300216: Snow ball078
+    2300218: Snow ball079
+    2300220: Snow ball080
+    2300222: Snow ball081
+    2300224: Snow ball082
+    2300226: Snow ball083
+    2300228: Snow ball084
+    2300230: Snow ball085
+    2300232: Snow ball086
+    2300234: Snow ball087
+    2300236: Snow ball088
+    2300238: Snow ball089
+    2300240: Snow ball090
+    2300242: Snow ball091
+    2300244: Snow ball092
+    2300246: Snow ball093
+    2300248: Snow ball094
+    3300000: Box031
+    3300002: Box032
+    3300004: Box034
+    3300006: Box036
+    3300008: Box038
+    3300010: Box040
+    3300012: Box041
+    3300014: Box046
+    3300016: Box048
+    3300018: Box056
+    3300020: Box057
+    3300022: Box059
+    3300024: Box061
+    3300026: Box063
+    3300028: Box065
+    3300030: Box066
+    3300032: Box071
+    3300034: Box073
+    3300036: Box081
+    3300038: Box082
+    3300040: Box084
+    3300042: Box086
+    3300044: Box088
+    3300046: Box090
+    3300048: Box091
+    3300050: Box096
+    3300052: Box098
+    3300054: Snow ball 1
+    3300056: Snow ball 2
+    3300058: Snow ball 3
+    3300060: Snow ball 4
+    3300062: Snow ball001
+    3300064: Snow ball002
+    3300066: Snow ball003
+    3300068: Snow ball004
+    3300070: Snow ball005
+    3300072: Snow ball006
+    3300074: Snow ball007
+    3300076: Snow ball008
+    3300078: Snow ball009
+    3300080: Snow ball010
+    3300082: Snow ball011
+    3300084: Snow ball012
+    3300086: Snow ball013
+    3300088: Snow ball014
+    3300090: Snow ball015
+    3300092: Snow ball016
+    3300094: Snow ball017
+    3300096: Snow ball018
+    3300098: Snow ball019
+    3300100: Snow ball020
+    3300102: Snow ball021
+    3300104: Snow ball022
+    3300106: Snow ball023
+    3300108: Snow ball024
+    3300110: Snow ball025
+    3300112: Snow ball026
+    3300114: Snow ball027
+    3300116: Snow ball028
+    3300118: Snow ball029
+    3300120: Snow ball030
+    3300122: Snow ball031
+    3300124: Snow ball032
+    3300126: Snow ball033
+    3300128: Snow ball034
+    3300130: Snow ball035
+    3300132: Snow ball036
+    3300134: Snow ball037
+    3300136: Snow ball038
+    3300138: Snow ball039
+    3300140: Snow ball040
+    3300142: Snow ball041
+    3300144: Snow ball042
+    3300146: Snow ball043
+    3300148: Snow ball044
+    3300150: Snow ball045
+    3300152: Snow ball046
+    3300154: Snow ball047
+    3300156: Snow ball048
+    3300158: Snow ball049
+    3300160: Snow ball050
+    3300162: Snow ball051
+    3300164: Snow ball052
+    3300166: Snow ball053
+    3300168: Snow ball054
+    3300170: Snow ball055
+    3300172: Snow ball056
+    3300174: Snow ball057
+    3300176: Snow ball058
+    3300178: Snow ball059
+    3300180: Snow ball060
+    3300182: Snow ball061
+    3300184: Snow ball062
+    3300186: Snow ball063
+    3300188: Snow ball064
+    3300190: Snow ball065
+    3300192: Snow ball066
+    3300194: Snow ball067
+    3300196: Snow ball068
+    3300198: Snow ball069
+    3300200: Snow ball070
+    3300202: Snow ball071
+    3300204: Snow ball072
+    3300206: Snow ball073
+    3300208: Snow ball074
+    3300210: Snow ball075
+    3300212: Snow ball076
+    3300214: Snow ball077
+    3300216: Snow ball078
+    3300218: Snow ball079
+    3300220: Snow ball080
+    3300222: Snow ball081
+    3300224: Snow ball082
+    3300226: Snow ball083
+    3300228: Snow ball084
+    3300230: Snow ball085
+    3300232: Snow ball086
+    3300234: Snow ball087
+    3300236: Snow ball088
+    3300238: Snow ball089
+    3300240: Snow ball090
+    3300242: Snow ball091
+    3300244: Snow ball092
+    3300246: Snow ball093
+    3300248: Snow ball094
+    4300000: Box031
+    4300002: Box032
+    4300004: Box034
+    4300006: Box036
+    4300008: Box038
+    4300010: Box040
+    4300012: Box041
+    4300014: Box046
+    4300016: Box048
+    4300018: Box056
+    4300020: Box057
+    4300022: Box059
+    4300024: Box061
+    4300026: Box063
+    4300028: Box065
+    4300030: Box066
+    4300032: Box071
+    4300034: Box073
+    4300036: Box081
+    4300038: Box082
+    4300040: Box084
+    4300042: Box086
+    4300044: Box088
+    4300046: Box090
+    4300048: Box091
+    4300050: Box096
+    4300052: Box098
+    4300054: Snow ball
+    4300056: Snow ball
+    4300058: Snow ball001
+    4300060: Snow ball002
+    4300062: Snow ball003
+    4300064: Snow ball004
+    4300066: Snow ball005
+    4300068: Snow ball006
+    4300070: Snow ball007
+    4300072: Snow ball008
+    4300074: Snow ball009
+    4300076: Snow ball010
+    4300078: Snow ball011
+    4300080: Snow ball012
+    4300082: Snow ball013
+    4300084: Snow ball014
+    4300086: Snow ball015
+    4300088: Snow ball016
+    4300090: Snow ball017
+    4300092: Snow ball018
+    4300094: Snow ball019
+    4300096: Snow ball020
+    4300098: Snow ball021
+    4300100: Snow ball022
+    4300102: Snow ball023
+    4300104: Snow ball024
+    4300106: Snow ball025
+    4300108: Snow ball026
+    4300110: Snow ball027
+    4300112: Snow ball028
+    4300114: Snow ball029
+    4300116: Snow ball030
+    4300118: Snow ball031
+    4300120: Snow ball032
+    4300122: Snow ball033
+    4300124: Snow ball034
+    4300126: Snow ball035
+    4300128: Snow ball036
+    4300130: Snow ball037
+    4300132: Snow ball038
+    4300134: Snow ball039
+    4300136: Snow ball040
+    4300138: Snow ball041
+    4300140: Snow ball042
+    4300142: Snow ball043
+    4300144: Snow ball044
+    4300146: Snow ball045
+    4300148: Snow ball046
+    4300150: Snow ball047
+    4300152: Snow ball048
+    4300154: Snow ball049
+    4300156: Snow ball050
+    4300158: Snow ball051
+    4300160: Snow ball052
+    4300162: Snow ball053
+    4300164: Snow ball054
+    4300166: Snow ball055
+    4300168: Snow ball056
+    4300170: Snow ball057
+    4300172: Snow ball058
+    4300174: Snow ball059
+    4300176: Snow ball060
+    4300178: Snow ball061
+    4300180: Snow ball062
+    4300182: Snow ball063
+    4300184: Snow ball064
+    4300186: Snow ball065
+    4300188: Snow ball066
+    4300190: Snow ball067
+    4300192: Snow ball068
+    4300194: Snow ball069
+    4300196: Snow ball070
+    4300198: Snow ball071
+    4300200: Snow ball072
+    4300202: Snow ball073
+    4300204: Snow ball074
+    4300206: Snow ball075
+    4300208: Snow ball076
+    4300210: Snow ball077
+    4300212: Snow ball078
+    4300214: Snow ball079
+    4300216: Snow ball080
+    4300218: Snow ball081
+    4300220: Snow ball082
+    4300222: Snow ball083
+    4300224: Snow ball084
+    4300226: Snow ball085
+    4300228: Snow ball086
+    4300230: Snow ball087
+    4300232: Snow ball088
+    4300234: Snow ball
+    4300236: Snow ball089
+    4300238: Snow ball090
+    4300240: Snow ball091
+    4300242: Snow ball
+    4300244: Snow ball092
+    4300246: Snow ball093
+    4300248: Snow ball094
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

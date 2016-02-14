@@ -8,19 +8,34 @@ public class Main : MonoBehaviour, IScene
     GameManager gameMgr;
     SoundManager soundMgr;
 
-    Button sound;
+    Button soundButton;
     Sprite sound_on;
     Sprite sound_off;
+
+    public Vector2 originalPos
+    {
+        get
+        {
+            return new Vector2(0, 0);
+        }
+    }
+    public GameObject sceneObject
+    {
+        get
+        {
+            return this.gameObject;
+        }
+    }
     void Awake()
     {
         uiMgr = GameObject.FindObjectOfType<UIManager>();
         gameMgr = GameObject.FindObjectOfType<GameManager>();
         soundMgr = GameObject.FindObjectOfType<SoundManager>();
 
-        sound = GameObject.Find("Sound").GetComponent<Button>();
+        soundButton = GameObject.Find("Sound Button").GetComponent<Button>();
 
-        sound_on = Resources.Load<Sprite>("UI/sound_on");
-        sound_off = Resources.Load<Sprite>("UI/sound_off");
+        sound_on = Resources.Load<Sprite>("UI/Main/sound_on");
+        sound_off = Resources.Load<Sprite>("UI/Main/sound_off");
     }
     void Update()
     {
@@ -39,11 +54,16 @@ public class Main : MonoBehaviour, IScene
 
         this.gameObject.SetActive(false);
     }
+    public void EscapeProcess()
+    {
+
+    }
+
     public void OnPlayButtonDown()
     {
         uiMgr.SetGameState(GameState.Shop);
     }
-    public void OnLankingButtonDown()
+    public void OnRankingButtonDown()
     {
 
     }
@@ -52,12 +72,12 @@ public class Main : MonoBehaviour, IScene
         if (soundMgr.isSoundOn)
         {
             soundMgr.SetSoundOn(false);
-            sound.image.sprite = sound_off;
+            soundButton.image.sprite = sound_off;
         }
         else
         {
             soundMgr.SetSoundOn(true);
-            sound.image.sprite = sound_on;
+            soundButton.image.sprite = sound_on;
         }
     }
 }

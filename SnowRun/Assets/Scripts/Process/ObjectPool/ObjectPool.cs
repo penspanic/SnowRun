@@ -7,7 +7,6 @@ public class ObjectPool : MonoBehaviour
 {
     public GameObject original;
 
-    Queue<GameObject> remainingObjects = new Queue<GameObject>();
 
     public delegate void InitDelegate(GameObject target);
     public delegate void ReleaseDelegate(GameObject target);
@@ -15,7 +14,8 @@ public class ObjectPool : MonoBehaviour
     public InitDelegate initMethod;
     public ReleaseDelegate releaseMethod;
 
-    public void InitPool(int startCount = 0, GameObject original = null)
+    protected Queue<GameObject> remainingObjects = new Queue<GameObject>();
+    public virtual void InitPool(int startCount = 0, GameObject original = null)
     {
         if (original != null)
             this.original = original;
@@ -23,8 +23,8 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < startCount; i++)
             remainingObjects.Enqueue(CreateNewObject());
     }
-    
-    public GameObject CreateNewObject()
+
+    public virtual GameObject CreateNewObject()
     {
         GameObject newObj;
 
@@ -34,9 +34,10 @@ public class ObjectPool : MonoBehaviour
 
         return newObj;
     }
-    public GameObject GetObject()
+
+    public virtual GameObject GetObject()
     {
-        if(remainingObjects.Count==0)
+        if (remainingObjects.Count == 0)
             remainingObjects.Enqueue(CreateNewObject());
 
         GameObject returnObj = remainingObjects.Dequeue();
@@ -48,9 +49,10 @@ public class ObjectPool : MonoBehaviour
 
         return returnObj;
     }
-    public void ReturnObject(GameObject obj)
+
+    public virtual void ReturnObject(GameObject obj)
     {
-        if(releaseMethod != null)
+        if (releaseMethod != null)
             releaseMethod(obj);
 
         obj.transform.SetParent(this.transform);
