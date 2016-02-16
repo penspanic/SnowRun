@@ -27,6 +27,7 @@ public class DeleteZone : MonoBehaviour
 
             linePool.ReturnObject(other.transform.parent.gameObject);
             mapCreate.CreateLine();
+            mapCreate.MoveGround();
         }
     }
 }

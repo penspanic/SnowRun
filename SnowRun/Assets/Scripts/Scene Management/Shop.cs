@@ -11,7 +11,6 @@ public class Shop : MonoBehaviour, IScene
     public Text coinText;
     public Button goButton;
 
-    UIManager uiMgr;
 
     public Vector2 originalPos
     {
@@ -27,14 +26,65 @@ public class Shop : MonoBehaviour, IScene
             return this.gameObject;
         }
     }
+
+    UIManager uiMgr;
+    GameManager gameMgr;
+
+    List<Player> prefabList;
+    List<GameObject> characterList = new List<GameObject>();
+
+    GameObject objectsParent;
+
+    Color[][] originalColors;
+
+    int selectedIndex = 0;
     void Awake()
     {
         uiMgr = GameObject.FindObjectOfType<UIManager>();
+        gameMgr = GameObject.FindObjectOfType<GameManager>();
+        objectsParent = GameObject.Find("Objects Parent");
+
+        prefabList = new List<Player>(Resources.LoadAll<Player>("Object/Character"));
+        prefabList.Sort(); // Sort by Player's IComparable implement
+
+        originalColors = new Color[prefabList.Count][];
+
+        int i = 0;
+        Debug.Log(prefabList.Count);
+        foreach(Player eachPrefab in prefabList)
+        {
+            Vector3 createPos = Vector3.zero + Vector3.right * i;
+            GameObject newCharacter = Instantiate(eachPrefab.gameObject, createPos, eachPrefab.transform.rotation) as GameObject;
+
+            newCharacter.transform.SetParent(objectsParent.transform, false);
+            Destroy(newCharacter.GetComponent<Player>());
+            Destroy(newCharacter.GetComponent<Rigidbody>());
+
+            Renderer[] renderers = newCharacter.GetComponentsInChildren<Renderer>();
+
+            originalColors[i] = new Color[renderers.Length];
+            for (int j = 0; j < renderers.Length; j++)
+                originalColors[i][j] = renderers[j].material.color;
+            characterList.Add(newCharacter);
+            i++;
+        }
     }
+
+    #region Events
 
     public void OnGoButtonDown()
     {
         uiMgr.SetGameState(GameState.InGame);
+    }
+
+    public void OnLeftButtonDown()
+    {
+        MoveCharacters(false);
+    }
+
+    public void OnRightButtonDown()
+    {
+        MoveCharacters(true);
     }
 
     public void Enter()
@@ -50,5 +100,52 @@ public class Shop : MonoBehaviour, IScene
     public void EscapeProcess()
     {
         uiMgr.SetGameState(GameState.Main);
+    }
+
+    #endregion
+
+    void SetCharacters()
+    {
+
+    }
+
+    bool isCharacterMoving = false;
+
+    void MoveCharacters(bool moveRight)
+    {
+        if (isCharacterMoving)
+            return;
+        if(moveRight)
+        {
+            if (selectedIndex + 1 >= characterList.Count)
+                return;
+            selectedIndex++;
+            foreach (var character in characterList)
+            {
+                Vector3 endPos = character.transform.localPosition;
+                endPos.x -= 1;
+            }
+        }
+        else
+        {
+            if (selectedIndex - 1 < 0)
+                return;
+            selectedIndex--;
+            foreach (var character in characterList)
+            {
+                Vector3 endPos = character.transform.localPosition;
+                endPos.x += 1;
+            }
+        }
+    }
+
+    void OnMoveEnd()
+    {
+        isCharacterMoving = false;
+    }
+
+    void SetCharacterColor(GameObject character)
+    {
+
     }
 }
