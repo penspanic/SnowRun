@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DeleteZone : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DeleteZone : MonoBehaviour
 
     public MapCreate mapCreate;
 
+    List<GameObject> returnTreeList = new List<GameObject>();
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,12 +20,15 @@ public class DeleteZone : MonoBehaviour
         if(other.transform.parent.CompareTag("Line"))
         {
             GameObject line = other.transform.parent.gameObject;
+            returnTreeList.Clear();
             foreach (Transform child in line.transform)
             {
                 Debug.Log(child.tag);
                 if (child.CompareTag("Tree"))
-                    treePool.ReturnObject(child.gameObject);
+                    returnTreeList.Add(child.gameObject);
             }
+            foreach (GameObject eachTree in returnTreeList)
+                treePool.ReturnObject(eachTree);
 
             linePool.ReturnObject(other.transform.parent.gameObject);
             mapCreate.CreateLine();

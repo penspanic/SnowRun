@@ -120,23 +120,43 @@ public class Shop : MonoBehaviour, IScene
             if (selectedIndex + 1 >= characterList.Count)
                 return;
             selectedIndex++;
-            foreach (var character in characterList)
-            {
-                Vector3 endPos = character.transform.localPosition;
-                endPos.x -= 1;
-            }
         }
         else
         {
             if (selectedIndex - 1 < 0)
                 return;
             selectedIndex--;
-            foreach (var character in characterList)
-            {
-                Vector3 endPos = character.transform.localPosition;
-                endPos.x += 1;
-            }
         }
+        //float cx = objectsParent.transform.localPosition.x;
+        //float cy = objectsParent.transform.localPosition.y;
+        //float rad = 1000 / 2;
+
+        foreach(var character in characterList)
+        {
+            Vector3 endPos = character.transform.localPosition;
+            endPos.x -= moveRight ? 1 : -1;
+            StartCoroutine(MoveCharacter(character, endPos));
+        }
+    }
+
+    IEnumerator MoveCharacter(GameObject target, Vector3 endPos)
+    {
+        float elapsedTime = 0f;
+        float moveTime = 0.5f;
+        isCharacterMoving = true;
+        Vector3 startPos = target.transform.localPosition;
+        while(elapsedTime < moveTime)
+        {
+            elapsedTime += Time.deltaTime;
+            target.transform.localPosition = EasingUtil.EaseVector3(EasingUtil.easeInOutBack, startPos, endPos, elapsedTime / moveTime);
+            yield return null;
+        }
+        isCharacterMoving = false;
+    }
+
+    Vector3 GetCharacterSetPosition(int index)
+    {
+        return Vector3.zero;
     }
 
     void OnMoveEnd()
