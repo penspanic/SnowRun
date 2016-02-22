@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 
 public class MapCreate : MonoBehaviour
@@ -54,8 +54,8 @@ public class MapCreate : MonoBehaviour
         {
             newTree = treePool.GetObject();
             newTree.transform.position = new Vector3(
-                createPos.x - 2.25f + i * 4.5f, createPos.y, createPos.z); 
-            newTree.transform.Translate(Vector3.up * 0.1f);
+                createPos.x - 2.25f + i * 4.5f, createPos.y, createPos.z);
+            newTree.transform.Translate(Vector3.up * 0.2f);
             newTree.transform.SetParent(newLine.transform);
             newTree.transform.localRotation = new Quaternion();
         }

@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour, IScene
     public Text coinText;
     public Button goButton;
 
-
+    #region IScene
     public Vector2 originalPos
     {
         get
@@ -26,6 +26,7 @@ public class Shop : MonoBehaviour, IScene
             return this.gameObject;
         }
     }
+    #endregion
 
     UIManager uiMgr;
     GameManager gameMgr;
@@ -34,15 +35,20 @@ public class Shop : MonoBehaviour, IScene
     List<GameObject> characterList = new List<GameObject>();
 
     GameObject objectsParent;
+    Vector3 parentCenter;
+    float characterCircleRad = 10f;
 
     Color[][] originalColors;
 
+    bool isCharacterMoving = false;
     int selectedIndex = 0;
     void Awake()
     {
         uiMgr = GameObject.FindObjectOfType<UIManager>();
         gameMgr = GameObject.FindObjectOfType<GameManager>();
         objectsParent = GameObject.Find("Objects Parent");
+        parentCenter = objectsParent.transform.position;
+        parentCenter.x = 0;
 
         prefabList = new List<Player>(Resources.LoadAll<Player>("Object/Character"));
         prefabList.Sort(); // Sort by Player's IComparable implement
@@ -51,10 +57,16 @@ public class Shop : MonoBehaviour, IScene
 
         int i = 0;
         Debug.Log(prefabList.Count);
-        foreach(Player eachPrefab in prefabList)
+        foreach (Player eachPrefab in prefabList)
         {
-            Vector3 createPos = Vector3.zero + Vector3.right * i;
-            GameObject newCharacter = Instantiate(eachPrefab.gameObject, createPos, eachPrefab.transform.rotation) as GameObject;
+            Vector3 createPos = new Vector3();
+            float angle = 20 * i * Mathf.Deg2Rad;
+            createPos.x = parentCenter.x + Mathf.Sin(angle) * characterCircleRad;
+            createPos.z = parentCenter.z - Mathf.Cos(angle) * characterCircleRad / 2;
+
+            Debug.Log(createPos.x);
+            GameObject newCharacter = Instantiate(eachPrefab.gameObject);
+            newCharacter.transform.localPosition = createPos;
 
             newCharacter.transform.SetParent(objectsParent.transform, false);
             Destroy(newCharacter.GetComponent<Player>());
@@ -77,19 +89,39 @@ public class Shop : MonoBehaviour, IScene
         uiMgr.SetGameState(GameState.InGame);
     }
 
-    public void OnLeftButtonDown()
-    {
-        MoveCharacters(false);
-    }
-
     public void OnRightButtonDown()
     {
-        MoveCharacters(true);
+        if (isCharacterMoving || selectedIndex >= characterList.Count - 1)
+            return;
+        float currAngle;
+        float targetAngle;
+        for (int i = 0; i < characterList.Count; i++)
+        {
+            currAngle = 10 * (i - selectedIndex) * Mathf.Deg2Rad;
+            targetAngle = 10 * (i - selectedIndex - 1) * Mathf.Deg2Rad;
+            StartCoroutine(MoveCharacter(characterList[i], currAngle, targetAngle));
+        }
+        selectedIndex++;
+    }
+
+    public void OnLeftButtonDown()
+    {
+        if (isCharacterMoving || selectedIndex == 0)
+            return;
+        float currAngle;
+        float targetAngle;
+        for (int i = 0; i < characterList.Count; i++)
+        {
+            currAngle = 10 * (i - selectedIndex) * Mathf.Deg2Rad;
+            targetAngle = 10 * (i - selectedIndex + 1) * Mathf.Deg2Rad;
+            StartCoroutine(MoveCharacter(characterList[i], currAngle, targetAngle));
+        }
+        selectedIndex--;
     }
 
     public void Enter()
     {
-
+        SetCharacterColor();
     }
 
     public void Leave()
@@ -104,53 +136,52 @@ public class Shop : MonoBehaviour, IScene
 
     #endregion
 
-    void SetCharacters()
+    void SetCharacterColor()
     {
-
-    }
-
-    bool isCharacterMoving = false;
-
-    void MoveCharacters(bool moveRight)
-    {
-        if (isCharacterMoving)
-            return;
-        if(moveRight)
+        Renderer[] renderers;
+        int i = 0;
+        foreach (GameObject eachCharacter in characterList)
         {
-            if (selectedIndex + 1 >= characterList.Count)
-                return;
-            selectedIndex++;
-        }
-        else
-        {
-            if (selectedIndex - 1 < 0)
-                return;
-            selectedIndex--;
-        }
-        //float cx = objectsParent.transform.localPosition.x;
-        //float cy = objectsParent.transform.localPosition.y;
-        //float rad = 1000 / 2;
+            if (gameMgr.HasOwn(eachCharacter.name))
+            {
 
-        foreach(var character in characterList)
-        {
-            Vector3 endPos = character.transform.localPosition;
-            endPos.x -= moveRight ? 1 : -1;
-            StartCoroutine(MoveCharacter(character, endPos));
+            }
+            else
+            {
+                renderers = eachCharacter.GetComponentsInChildren<Renderer>();
+                for (int j = 0; j < renderers.Length; j++)
+                {
+                    Color newColor = originalColors[i][j];
+                    newColor.a = 0.5f;
+                    renderers[j].material.color = newColor;
+                }
+            }
+            i++;
         }
     }
 
-    IEnumerator MoveCharacter(GameObject target, Vector3 endPos)
+    IEnumerator MoveCharacter(GameObject target, float startAngle, float endAngle)
     {
+        isCharacterMoving = true;
+
         float elapsedTime = 0f;
         float moveTime = 0.5f;
-        isCharacterMoving = true;
-        Vector3 startPos = target.transform.localPosition;
-        while(elapsedTime < moveTime)
+        Vector3 currPos = Vector3.zero;
+        float currAngle = 0f;
+        while (elapsedTime < moveTime)
         {
             elapsedTime += Time.deltaTime;
-            target.transform.localPosition = EasingUtil.EaseVector3(EasingUtil.easeInOutBack, startPos, endPos, elapsedTime / moveTime);
+            currAngle = EasingUtil.easeInOutBack(startAngle, endAngle, elapsedTime / moveTime);
+            currPos.x = parentCenter.x + Mathf.Sin(currAngle) * characterCircleRad;
+            currPos.z = parentCenter.z - Mathf.Cos(currAngle) * characterCircleRad / 2;
+            target.transform.localPosition = currPos;
+
             yield return null;
         }
+        currPos.x = parentCenter.x + Mathf.Sin(endAngle) * characterCircleRad;
+        currPos.z = parentCenter.z - Mathf.Cos(endAngle) * characterCircleRad / 2;
+        target.transform.localPosition = currPos;
+
         isCharacterMoving = false;
     }
 

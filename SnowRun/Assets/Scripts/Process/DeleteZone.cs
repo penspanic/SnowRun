@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,10 +14,9 @@ public class DeleteZone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
         GameObject collidedObject = other.gameObject;
 
-        if(other.transform.parent.CompareTag("Line"))
+        if (other.transform.parent.CompareTag("Line"))
         {
             GameObject line = other.transform.parent.gameObject;
             returnTreeList.Clear();

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 
 public class CameraMove : MonoBehaviour
@@ -37,7 +37,7 @@ public class CameraMove : MonoBehaviour
     {
         if (isGameProcessing)
         {
-            if(isFirstTime)
+            if (isFirstTime)
             {
                 playerPrevPos = new Vector3(0, player.transform.position.y, player.transform.position.z);
                 isFirstTime = false;
@@ -57,14 +57,14 @@ public class CameraMove : MonoBehaviour
     public void SetFollowPlayer(bool value)
     {
         isGameProcessing = value;
-        if(isGameProcessing)
+        if (isGameProcessing)
         {
             player = inGame.currPlayer.gameObject;
             playerPrevPos = player.transform.position;
             isFirstTime = true;
         }
     }
-    
+
     public void MoveCamera(bool value)
     {
         isMenuMoving = value;
