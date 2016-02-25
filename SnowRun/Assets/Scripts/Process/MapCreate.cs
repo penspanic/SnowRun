@@ -6,7 +6,6 @@ public class MapCreate : MonoBehaviour
     public ObjectPool linePool;
     public ObjectPool treePool;
 
-    public GameObject linePrefab;
     public Transform mapTransform;
     public GameObject ground;
     public GameObject ground2;
