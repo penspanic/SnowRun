@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
-        SceneFader.SomeMethod();
         OwnCharacterLoad();
     }
     
@@ -29,9 +28,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool HasOwn(string characterName)
+    public bool IsOwn(string characterName)
     {
-        return ownCharacterList.Contains(characterName);
+        foreach(string eachName in ownCharacterList)
+        {
+            if (characterName.Contains(eachName))
+                return true;
+        }
+        return false;
     }
 
     public void BuyCharacter(int cost)

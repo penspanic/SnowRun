@@ -22,7 +22,6 @@ public class DeleteZone : MonoBehaviour
             returnTreeList.Clear();
             foreach (Transform child in line.transform)
             {
-                Debug.Log(child.tag);
                 if (child.CompareTag("Tree"))
                     returnTreeList.Add(child.gameObject);
             }

@@ -31,6 +31,8 @@ public class Shop : MonoBehaviour, IScene
     UIManager uiMgr;
     GameManager gameMgr;
 
+    InGame inGame;
+
     List<Player> prefabList;
     List<GameObject> characterList = new List<GameObject>();
 
@@ -46,6 +48,7 @@ public class Shop : MonoBehaviour, IScene
     {
         uiMgr = GameObject.FindObjectOfType<UIManager>();
         gameMgr = GameObject.FindObjectOfType<GameManager>();
+        inGame = GameObject.FindObjectOfType<InGame>();
         objectsParent = GameObject.Find("Objects Parent");
         parentCenter = objectsParent.transform.position;
         parentCenter.x = 0;
@@ -56,7 +59,7 @@ public class Shop : MonoBehaviour, IScene
         originalColors = new Color[prefabList.Count][];
 
         int i = 0;
-        Debug.Log(prefabList.Count);
+
         foreach (Player eachPrefab in prefabList)
         {
             Vector3 createPos = new Vector3();
@@ -64,7 +67,6 @@ public class Shop : MonoBehaviour, IScene
             createPos.x = parentCenter.x + Mathf.Sin(angle) * characterCircleRad;
             createPos.z = parentCenter.z - Mathf.Cos(angle) * characterCircleRad / 2;
 
-            Debug.Log(createPos.x);
             GameObject newCharacter = Instantiate(eachPrefab.gameObject);
             newCharacter.transform.localPosition = createPos;
 
@@ -86,7 +88,11 @@ public class Shop : MonoBehaviour, IScene
 
     public void OnGoButtonDown()
     {
+        if (uiMgr.state != GameState.Shop)
+            return;
+
         uiMgr.SetGameState(GameState.InGame);
+        inGame.GameStart(prefabList[selectedIndex]);
     }
 
     public void OnRightButtonDown()
@@ -102,6 +108,11 @@ public class Shop : MonoBehaviour, IScene
             StartCoroutine(MoveCharacter(characterList[i], currAngle, targetAngle));
         }
         selectedIndex++;
+
+        if(gameMgr.IsOwn(characterList[selectedIndex].name))
+           goButton.interactable = true;
+        else
+            goButton.interactable = false;
     }
 
     public void OnLeftButtonDown()
@@ -117,6 +128,11 @@ public class Shop : MonoBehaviour, IScene
             StartCoroutine(MoveCharacter(characterList[i], currAngle, targetAngle));
         }
         selectedIndex--;
+
+        if (gameMgr.IsOwn(characterList[selectedIndex].name))
+            goButton.interactable = true;
+        else
+            goButton.interactable = false;
     }
 
     public void Enter()
@@ -132,6 +148,7 @@ public class Shop : MonoBehaviour, IScene
     public void EscapeProcess()
     {
         uiMgr.SetGameState(GameState.Main);
+
     }
 
     #endregion
@@ -142,17 +159,19 @@ public class Shop : MonoBehaviour, IScene
         int i = 0;
         foreach (GameObject eachCharacter in characterList)
         {
-            if (gameMgr.HasOwn(eachCharacter.name))
+            renderers = eachCharacter.GetComponentsInChildren<Renderer>();
+            if (gameMgr.IsOwn(eachCharacter.name))
             {
-
+                for(int j = 0;j<renderers.Length;j++)
+                {
+                    renderers[j].material.color = originalColors[i][j];
+                }
             }
             else
             {
-                renderers = eachCharacter.GetComponentsInChildren<Renderer>();
                 for (int j = 0; j < renderers.Length; j++)
                 {
-                    Color newColor = originalColors[i][j];
-                    newColor.a = 0.5f;
+                    Color newColor = Color.black;
                     renderers[j].material.color = newColor;
                 }
             }
@@ -193,10 +212,5 @@ public class Shop : MonoBehaviour, IScene
     void OnMoveEnd()
     {
         isCharacterMoving = false;
-    }
-
-    void SetCharacterColor(GameObject character)
-    {
-
     }
 }

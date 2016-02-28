@@ -54,7 +54,7 @@ public class MapCreate : MonoBehaviour
             newTree = treePool.GetObject();
             newTree.transform.position = new Vector3(
                 createPos.x - 2.25f + i * 4.5f, createPos.y, createPos.z);
-            newTree.transform.Translate(Vector3.up * 0.2f);
+            newTree.transform.Translate(Vector3.up * 0.3f);
             newTree.transform.SetParent(newLine.transform);
             newTree.transform.localRotation = new Quaternion();
         }

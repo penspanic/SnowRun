@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:SnowRun/Assets/Resources/Object/FBX/Materials/01 - Default.mat.meta
+guid: d6062bc16df0339459e2a05a065a6d1b
+timeCreated: 1456298717
+=======
 guid: 72c33c230e04ccd47a78a8dc21e73f32
 timeCreated: 1456367401
+>>>>>>> origin/master:SnowRun/Assets/Resources/Object/FBX/Materials/01 - Default.mat.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 
