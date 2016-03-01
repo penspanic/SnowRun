@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public void GetCoin(int amount = 1)
+    {
+        coin += amount;
+    }
+
     public void BuyCharacter(int cost)
     {
         coin -= cost;

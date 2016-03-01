@@ -19,10 +19,19 @@ public class InGame : MonoBehaviour, IScene
             return this.gameObject;
         }
     }
-
+    
+   
     public Transform characterCreateTransform;
     public Image readyStartImage;
     public GameObject touchArea;
+
+    public Text coinText;
+    public Text scoreText;
+
+    GameManager gameMgr;
+
+    GameObject pauseUI;
+    GameObject gameOverUI;
 
     public int scoreIncreasement = 5;
     int score = 0;
@@ -38,7 +47,10 @@ public class InGame : MonoBehaviour, IScene
         readySprite = Resources.Load<Sprite>("UI/InGame/ready");
         startSprite = Resources.Load<Sprite>("UI/InGame/start");
 
-        touchArea.SetActive(false);
+        gameMgr = GameObject.FindObjectOfType<GameManager>();
+
+        pauseUI = GameObject.Find("Pause UI");
+        gameOverUI = GameObject.Find("Game Over UI");
     }
 
     #region Events
@@ -46,6 +58,8 @@ public class InGame : MonoBehaviour, IScene
     public void Enter()
     {
         touchArea.SetActive(true);
+        pauseUI.SetActive(false);
+        gameOverUI.SetActive(false);
         score = 0;
         isWaitEnd = false;
     }
@@ -74,6 +88,26 @@ public class InGame : MonoBehaviour, IScene
         currPlayer.OnTouchAreaExit();
     }
 
+    #region Pause UI
+    public void OnPauseButtonDown()
+    {
+        pauseUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void OnResumeButtonDown()
+    {
+        pauseUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void OnQuitButtonDown()
+    {
+
+    }
+
+    #endregion
+
     #endregion
 
     public void GameStart(Player player)
@@ -92,11 +126,13 @@ public class InGame : MonoBehaviour, IScene
     public void PointGet(int point)
     {
         score += point;
+        scoreText.text = score.ToString();
     }
 
     public void CoinGet()
     {
-
+        gameMgr.GetCoin();
+        coinText.text = gameMgr.coin.ToString();
     }
 
     IEnumerator GameStartProces()

@@ -204,6 +204,15 @@ public class Shop : MonoBehaviour, IScene
         isCharacterMoving = false;
     }
 
+    IEnumerator RotateCharacters()
+    {
+        while(true)
+        {
+
+            yield return null;
+        }
+    }
+
     Vector3 GetCharacterSetPosition(int index)
     {
         return Vector3.zero;
